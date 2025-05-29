@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenFields - Smart Farm Management Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>GreenFields</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#crops" class="nav-link">
+                    <i class="fas fa-seedling"></i>
+                    <span>Crops</span>
+                </a>
+                <a href="#livestock" class="nav-link">
+                    <i class="fas fa-cow"></i>
+                    <span>Livestock</span>
+                </a>
+                <a href="#weather" class="nav-link">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>Weather</span>
+                </a>
+                <a href="#analytics" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#marketplace" class="nav-link">
+                    <i class="fas fa-store"></i>
+                    <span>Market</span>
+                </a>
+            </div>
+            <div class="nav-profile">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="profile-dropdown">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%234CAF50'/><text x='50' y='65' text-anchor='middle' fill='white' font-size='40' font-family='Arial'>👨‍🌾</text></svg>" alt="Profile" class="profile-img">
+                    <span class="profile-name">John Farmer</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Dashboard Section -->
+    <section class="hero-dashboard">
+        <div class="hero-content">
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome back, John! 🌾</h1>
+                <p class="welcome-subtitle">Here's what's happening on your farm today</p>
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">24°C</span>
+                            <span class="stat-label">Temperature</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">68%</span>
+                            <span class="stat-label">Humidity</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">92%</span>
+                            <span class="stat-label">Crop Health</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-main">
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2 class="section-title">Quick Actions</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Add New Crop</h3>
+                    <p>Register a new crop field</p>
+                    <button class="action-btn">Add Now</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Schedule Irrigation</h3>
+                    <p>Set up watering schedule</p>
+                    <button class="action-btn">Schedule</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Record Harvest</h3>
+                    <p>Log your harvest data</p>
+                    <button class="action-btn">Record</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Order Supplies</h3>
+                    <p>Purchase seeds & fertilizers</p>
+                    <button class="action-btn">Order</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Farm Overview -->
+        <section class="farm-overview">
+            <div class="overview-header">
+                <h2 class="section-title">Farm Overview</h2>
+                <div class="time-filter">
+                    <button class="filter-btn active">Today</button>
+                    <button class="filter-btn">Week</button>
+                    <button class="filter-btn">Month</button>
+                </div>
+            </div>
+            
+            <div class="overview-grid">
+                <!-- Farm Stats -->
+                <div class="overview-card stats-card">
+                    <h3>Farm Statistics</h3>
+                    <div class="stats-list">
+                        <div class="stat-row">
+                            <span class="stat-label">Total Area</span>
+                            <span class="stat-value">250 acres</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Active Crops</span>
+                            <span class="stat-value">12 types</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Livestock</span>
+                            <span class="stat-value">184 animals</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Monthly Revenue</span>
+                            <span class="stat-value">$15,240</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Widget -->
+                <div class="overview-card weather-card">
+                    <h3>Weather Forecast</h3>
+                    <div class="weather-current">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-info">
+                            <span class="weather-temp">24°C</span>
+                            <span class="weather-desc">Sunny</span>
+                        </div>
+                    </div>
+                    <div class="weather-forecast">
+                        <div class="forecast-item">
+                            <span class="forecast-day">Tomorrow</span>
+                            <i class="fas fa-cloud-rain"></i>
+                            <span class="forecast-temp">22°C</span>
+                        </div>
+                        <div class="forecast-item">
+                            <span class="forecast-day">Thursday</span>
+                            <i class="fas fa-cloud-sun"></i>
+                            <span class="forecast-temp">26°C</span>
+                        </div>
+                        <div class="forecast-item">
+                            <span class="forecast-day">Friday</span>
+                            <i class="fas fa-sun"></i>
+                            <span class="forecast-temp">28°C</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="overview-card activities-card">
+                    <h3>Recent Activities</h3>
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text">Corn field watered automatically</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-cow"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text">Livestock health check completed</p>
+                                <span class="activity-time">5 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-harvest"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text">Tomato harvest: 450kg recorded</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text">Fertilizer order delivered</p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Crop Status -->
+        <section class="crop-status">
+            <h2 class="section-title">Crop Status Monitor</h2>
+            <div class="crops-grid">
+                <div class="crop-card">
+                    <div class="crop-header">
+                        <div class="crop-icon">🌽</div>
+                        <div class="crop-info">
+                            <h4>Corn Field A</h4>
+                            <span class="crop-area">45 acres</span>
+                        </div>
+                        <div class="crop-status-indicator healthy"></div>
+                    </div>
+                    <div class="crop-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <span class="progress-text">75% to harvest</span>
+                    </div>
+                    <div class="crop-stats">
+                        <span class="crop-stat">Health: 92%</span>
+                        <span class="crop-stat">Growth: Excellent</span>
+                    </div>
+                </div>
+
+                <div class="crop-card">
+                    <div class="crop-header">
+                        <div class="crop-icon">🍅</div>
+                        <div class="crop-info">
+                            <h4>Tomato Field</h4>
+                            <span class="crop-area">30 acres</span>
+                        </div>
+                        <div class="crop-status-indicator warning"></div>
+                    </div>
+                    <div class="crop-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <span class="progress-text">60% to harvest</span>
+                    </div>
+                    <div class="crop-stats">
+                        <span class="crop-stat">Health: 78%</span>
+                        <span class="crop-stat">Growth: Good</span>
+                    </div>
+                </div>
+
+                <div class="crop-card">
+                    <div class="crop-header">
+                        <div class="crop-icon">🌾</div>
+                        <div class="crop-info">
+                            <h4>Wheat Field</h4>
+                            <span class="crop-area">80 acres</span>
+                        </div>
+                        <div class="crop-status-indicator healthy"></div>
+                    </div>
+                    <div class="crop-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                        <span class="progress-text">90% to harvest</span>
+                    </div>
+                    <div class="crop-stats">
+                        <span class="crop-stat">Health: 95%</span>
+                        <span class="crop-stat">Growth: Excellent</span>
+                    </div>
+                </div>
+
+                <div class="crop-card">
+                    <div class="crop-header">
+                        <div class="crop-icon">🥕</div>
+                        <div class="crop-info">
+                            <h4>Carrot Field</h4>
+                            <span class="crop-area">25 acres</span>
+                        </div>
+                        <div class="crop-status-indicator healthy"></div>
+                    </div>
+                    <div class="crop-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <span class="progress-text">45% to harvest</span>
+                    </div>
+                    <div class="crop-stats">
+                        <span class="crop-stat">Health: 88%</span>
+                        <span class="crop-stat">Growth: Good</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 GreenFields Farm Management. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#support">Support</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>

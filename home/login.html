@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management System - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo">🌱 FarmSync</div>
+            <p class="login-subtitle">Welcome back to your farm management dashboard</p>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    class="form-input" 
+                    placeholder="Username or Email"
+                    id="username"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+            <div class="form-group password-group">
+                <input 
+                    type="password" 
+                    class="form-input" 
+                    placeholder="Password"
+                    id="password"
+                    autocomplete="current-password"
+                    required
+                >
+                <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                    👁️
+                </button>
+            </div>
+
+            <div class="remember-forgot">
+                <label class="remember-me">
+                    <input type="checkbox" class="checkbox" id="rememberMe">
+                    <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot-password" id="forgotPassword">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-btn ripple" id="loginBtn">
+                Sign In to Farm Dashboard
+            </button>
+        </form>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <a href="#" class="guest-login" id="guestLogin">Continue as Guest</a>
+    </div>
+
+    <!-- Audio for notifications (optional) -->
+    <audio id="notificationSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmE9BkOY2fPFdiMFl3s=" type="audio/wav">
+    </audio>
+
+    <script src="login.js"></script>
+</body>
+</html>
