@@ -111,7 +111,8 @@
   .image {
     min-height: 100vh;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), 
+    background-image: url('1.jpg');
+   // background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), 
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234CAF50;stop-opacity:1" /><stop offset="100%" style="stop-color:%232e7d32;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23bg)" width="1200" height="800"/><circle cx="200" cy="150" r="50" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="30" fill="rgba(255,255,255,0.1)"/><circle cx="1000" cy="200" r="40" fill="rgba(255,255,255,0.1)"/></svg>');
     background-size: cover;
     background-position: center;
@@ -130,7 +131,7 @@
   .image h2 {
     font-size: 3rem;
     color: white;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(76, 175, 80, 0.3));
+    background: linear-gradient(135deg, rgba(100, 100, 100, 0.6), rgba(179, 224, 181, 0.3));
     padding: 2rem;
     border-radius: 20px;
     text-align: center;

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Inventory Management</title>
+    <link rel="stylesheet" href="inventorypage.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌾 Farm Inventory Management</h1>
+            <p>Track and manage your farm's resources efficiently</p>
+        </div>
+
+        <div class="dashboard">
+            <div class="stats-panel">
+                <h3>📊 Inventory Overview</h3>
+                <div class="stat-item" onclick="filterByCategory('seeds')">
+                    <div>
+                        <span class="stat-icon">🌱</span>
+                        <span>Seeds</span>
+                    </div>
+                    <span class="stat-value" id="seeds-count">0</span>
+                </div>
+                <div class="stat-item" onclick="filterByCategory('fertilizers')">
+                    <div>
+                        <span class="stat-icon">🧪</span>
+                        <span>Fertilizers</span>
+                    </div>
+                    <span class="stat-value" id="fertilizers-count">0</span>
+                </div>
+                <div class="stat-item" onclick="filterByCategory('equipment')">
+                    <div>
+                        <span class="stat-icon">🚜</span>
+                        <span>Equipment</span>
+                    </div>
+                    <span class="stat-value" id="equipment-count">0</span>
+                </div>
+                <div class="stat-item" onclick="filterByCategory('livestock')">
+                    <div>
+                        <span class="stat-icon">🐄</span>
+                        <span>Livestock</span>
+                    </div>
+                    <span class="stat-value" id="livestock-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <div>
+                        <span class="stat-icon">⚠️</span>
+                        <span>Low Stock Items</span>
+                    </div>
+                    <span class="stat-value" id="low-stock-count">0</span>
+                </div>
+            </div>
+
+            <div class="inventory-panel">
+                <div class="panel-header">
+                    <h3>📦 Inventory Items</h3>
+                    <button class="add-btn" onclick="openAddModal()">
+                        <span>➕</span>
+                        Add Item
+                    </button>
+                </div>
+
+                <div class="category-tabs">
+                    <button class="tab active" onclick="filterByCategory('all')">All Items</button>
+                    <button class="tab" onclick="filterByCategory('seeds')">🌱 Seeds</button>
+                    <button class="tab" onclick="filterByCategory('fertilizers')">🧪 Fertilizers</button>
+                    <button class="tab" onclick="filterByCategory('equipment')">🚜 Equipment</button>
+                    <button class="tab" onclick="filterByCategory('livestock')">🐄 Livestock</button>
+                </div>
+
+                <div class="inventory-grid" id="inventory-grid">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="modal" id="item-modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h3 id="modal-title">Add New Item</h3>
+            <form id="item-form">
+                <div class="form-group">
+                    <label for="item-name">Item Name *</label>
+                    <input type="text" id="item-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-category">Category *</label>
+                    <select id="item-category" required>
+                        <option value="">Select Category</option>
+                        <option value="seeds">🌱 Seeds</option>
+                        <option value="fertilizers">🧪 Fertilizers</option>
+                        <option value="equipment">🚜 Equipment</option>
+                        <option value="livestock">🐄 Livestock</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-quantity">Quantity *</label>
+                    <input type="number" id="item-quantity" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-unit">Unit</label>
+                    <select id="item-unit">
+                        <option value="kg">Kg</option>
+                        <option value="lbs">Lbs</option>
+                        <option value="bags">Bags</option>
+                        <option value="pieces">Pieces</option>
+                        <option value="liters">Liters</option>
+                        <option value="units">Units</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-price">Price per Unit ($)</label>
+                    <input type="number" id="item-price" min="0" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="item-supplier">Supplier</label>
+                    <input type="text" id="item-supplier">
+                </div>
+                <div class="form-group">
+                    <label for="item-location">Storage Location</label>
+                    <input type="text" id="item-location">
+                </div>
+                <div class="form-group">
+                    <label for="item-notes">Notes</label>
+                    <textarea id="item-notes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-save">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="inventorypage.js"></script>
+</body>
+</html>

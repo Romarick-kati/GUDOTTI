@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Farm Management System</title>
+    <link rel="stylesheet" href="myservices.css" />
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">🌾 GreenFields</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive farm management solutions to boost your agricultural productivity and profitability</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3>Crop Management</h3>
+                    <p>Advanced crop monitoring and management system to optimize your harvest yield and quality.</p>
+                    <ul class="service-features">
+                        <li>Real-time crop health monitoring</li>
+                        <li>Pest and disease detection</li>
+                        <li>Growth stage tracking</li>
+                        <li>Harvest optimization</li>
+                    </ul>
+                    <button class="service-btn" onclick="openModal('crop-modal')">Learn More</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🐄</div>
+                    <h3>Livestock Management</h3>
+                    <p>Complete livestock tracking and health management system for optimal animal welfare.</p>
+                    <ul class="service-features">
+                        <li>Animal health records</li>
+                        <li>Breeding management</li>
+                        <li>Feed optimization</li>
+                        <li>Vaccination scheduling</li>
+                    </ul>
+                    <button class="service-btn" onclick="openModal('livestock-modal')">Learn More</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Irrigation Management</h3>
+                    <p>Smart irrigation system with automated scheduling and water usage optimization.</p>
+                    <ul class="service-features">
+                        <li>Automated watering schedules</li>
+                        <li>Soil moisture monitoring</li>
+                        <li>Water usage analytics</li>
+                        <li>Weather-based adjustments</li>
+                    </ul>
+                    <button class="service-btn" onclick="openModal('irrigation-modal')">Learn More</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Financial Analytics</h3>
+                    <p>Comprehensive financial tracking and reporting for better farm business decisions.</p>
+                    <ul class="service-features">
+                        <li>Expense tracking</li>
+                        <li>Revenue analysis</li>
+                        <li>Profit optimization</li>
+                        <li>Budget planning</li>
+                    </ul>
+                    <button class="service-btn" onclick="openModal('finance-modal')">Learn More</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌡️</div>
+                    <h3>Weather Monitoring</h3>
+                    <p>Advanced weather tracking and forecasting to plan your farming activities effectively.</p>
+                    <ul class="service-features">
+                        <li>Real-time weather data</li>
+                        <li>7-day forecasts</li>
+                        <li>Climate alerts</li>
+                        <li>Historical data analysis</li>
+                    </ul>
+                    <button class="service-btn" onclick="openModal('weather-modal')">Learn More</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobile App Access</h3>
+                    <p>Access all farm management tools on-the-go with our comprehensive mobile application.</p>
+                    <ul class="service-features">
+                        <li>Cross-platform compatibility</li>
+                        <li>Offline functionality</li>
+                        <li>Push notifications</li>
+                        <li>Real-time synchronization</li>
+                    </ul>
+                    <button class="service-btn" onclick="openModal('mobile-modal')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">$29<span>/month</span></div>
+                    <ul class="service-features">
+                        <li>Up to 10 acres</li>
+                        <li>Basic crop monitoring</li>
+                        <li>Weather alerts</li>
+                        <li>Email support</li>
+                    </ul>
+                    <button class="service-btn">Get Started</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">$79<span>/month</span></div>
+                    <ul class="service-features">
+                        <li>Up to 100 acres</li>
+                        <li>Full livestock management</li>
+                        <li>Advanced analytics</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <button class="service-btn">Get Started</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$199<span>/month</span></div>
+                    <ul class="service-features">
+                        <li>Unlimited acres</li>
+                        <li>Custom integrations</li>
+                        <li>Dedicated support</li>
+                        <li>API access</li>
+                    </ul>
+                    <button class="service-btn">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Farm?</h2>
+                <p>Join thousands of farmers who have already revolutionized their agricultural practices with our comprehensive farm management system.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn primary">Start Free Trial</a>
+                    <a href="#" class="cta-btn">Schedule Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FarmTech Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="crop-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('crop-modal')">&times;</span>
+            <h3>Crop Management Details</h3>
+            <p>Our advanced crop management system provides comprehensive monitoring and optimization tools:</p>
+            <ul>
+                <li><strong>AI-Powered Analysis:</strong> Machine learning algorithms analyze crop health</li>
+                <li><strong>Drone Integration:</strong> Aerial monitoring for large-scale farms</li>
+                <li><strong>Predictive Analytics:</strong> Forecast potential issues before they occur</li>
+                <li><strong>Mobile Alerts:</strong> Instant notifications for critical conditions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="livestock-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('livestock-modal')">&times;</span>
+            <h3>Livestock Management Details</h3>
+            <p>Complete animal welfare and productivity management:</p>
+            <ul>
+                <li><strong>Health Tracking:</strong> Monitor vital signs and behavior patterns</li>
+                <li><strong>Breeding Records:</strong> Genetic tracking and optimization</li>
+                <li><strong>Feed Management:</strong> Automated feeding schedules and nutrition tracking</li>
+                <li><strong>Veterinary Integration:</strong> Direct connection with local veterinarians</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="irrigation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('irrigation-modal')">&times;</span>
+            <h3>Irrigation Management Details</h3>
+            <p>Smart water management for optimal crop growth:</p>
+            <ul>
+                <li><strong>Sensor Network:</strong> Real-time soil moisture and weather monitoring</li>
+                <li><strong>Automated Systems:</strong> Smart valve control and scheduling</li>
+                <li><strong>Water Conservation:</strong> Minimize waste while maximizing efficiency</li>
+                <li><strong>Remote Control:</strong> Manage irrigation from anywhere</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="finance-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('finance-modal')">&times;</span>
+            <h3>Financial Analytics Details</h3>
+            <p>Comprehensive financial management and reporting:</p>
+            <ul>
+                <li><strong>Expense Tracking:</strong> Categorized spending analysis</li>
+                <li><strong>Revenue Optimization:</strong> Identify most profitable crops/activities</li>
+                <li><strong>Tax Preparation:</strong> Automated record keeping for tax season</li>
+                <li><strong>Budget Forecasting:</strong> Plan future investments and expenses</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="weather-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('weather-modal')">&times;</span>
+            <h3>Weather Monitoring Details</h3>
+            <p>Advanced meteorological data and forecasting:</p>
+            <ul>
+                <li><strong>Hyperlocal Data:</strong> Weather specific to your farm location</li>
+                <li><strong>Extended Forecasts:</strong> Up to 14-day weather predictions</li>
+                <li><strong>Severe Weather Alerts:</strong> Early warning system for extreme conditions</li>
+                <li><strong>Historical Analysis:</strong> Compare current conditions with past years</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="mobile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mobile-modal')">&times;</span>
+            <h3>Mobile App Details</h3>
+            <p>Full-featured mobile application for farm management:</p>
+            <ul>
+                <li><strong>Cross-Platform:</strong> Available on iOS and Android</li>
+                <li><strong>Offline Mode:</strong> Work without internet connection</li>
+                <li><strong>Photo Documentation:</strong> Capture and organize farm photos</li>
+                <li><strong>GPS Integration:</strong> Location-based data and mapping</li>
+            </ul>
+        </div>
+    </div>
+    <script src="myservices.js"></script>
+    <script>
+        // Animation on scroll
+       
+    </script>
+</body>
+</html>

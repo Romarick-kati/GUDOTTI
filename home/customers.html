@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Customers - GreenFields</title>
+  <link rel="stylesheet" href="customers.css" />
+  
+</head>
+<body>
+  <header>
+    <div class="logo">GreenFields</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="landingpage.html">Home</a></li>
+        <li><a href="employee.html">Employees</a></li>
+        <li><a href="customers.html" class="active">Customers</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Our Valued Customers</h1>
+    <p>Total Customers: <span id="customer-count">3</span></p>
+    <button id="addCustomerBtn">Add New Customer</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Farm Type</th>
+          <th>Location</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="customer-table-body">
+        <tr>
+          <td>C001</td>
+          <td>Sarah Mbia</td>
+          <td>Crop Farming</td>
+          <td>Bamenda</td>
+          <td>sarah.mbia@example.com</td>
+          <td>+237 654 32 10 98</td>
+          <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+          <td>C002</td>
+          <td>Daniel Ojong</td>
+          <td>Livestock</td>
+          <td>Douala</td>
+          <td>daniel.ojong@example.com</td>
+          <td>+237 671 43 21 76</td>
+          <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+          <td>C003</td>
+          <td>Grace Ndumbe</td>
+          <td>Mixed Farming</td>
+          <td>Buea</td>
+          <td>grace.ndumbe@example.com</td>
+          <td>+237 690 11 22 33</td>
+          <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <!-- Modal Form -->
+  <div class="modal" id="modalForm">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Register New Customer</h2>
+      <form id="customerForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <select id="farmType" required>
+          <option value="">Select Farm Type</option>
+          <option value="Crop Farming">Crop Farming</option>
+          <option value="Livestock">Livestock</option>
+          <option value="Mixed Farming">Mixed Farming</option>
+        </select>
+        <input type="text" id="location" placeholder="Location" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="tel" id="phone" placeholder="Phone" required>
+        <button type="submit">Add Customer</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 GreenFields Farm Management. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById("modalForm");
+    const openBtn = document.getElementById("addCustomerBtn");
+    const closeBtn = document.querySelector(".close");
+    const tableBody = document.getElementById("customer-table-body");
+    const countDisplay = document.getElementById("customer-count");
+
+    // Open/Close modal
+    openBtn.onclick = () => modal.style.display = "block";
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+    // Update count
+    function updateCount() {
+      countDisplay.textContent = tableBody.rows.length;
+    }
+
+    // Delete row function
+    function deleteRow(btn) {
+      const row = btn.closest("tr");
+      row.remove();
+      updateCount();
+    }
+
+    // Add customer
+    document.getElementById("customerForm").onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const farmType = document.getElementById("farmType").value;
+      const location = document.getElementById("location").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+
+      const rowCount = tableBody.rows.length + 1;
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td>C00${rowCount}</td>
+        <td>${name}</td>
+        <td>${farmType}</td>
+        <td>${location}</td>
+        <td>${email}</td>
+        <td>${phone}</td>
+        <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+      `;
+      tableBody.appendChild(newRow);
+      updateCount();
+      modal.style.display = "none";
+      this.reset();
+    };
+
+    // Initial count update
+    updateCount();
+  </script>
+</body>
+</html>

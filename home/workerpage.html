@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Worker Management System</title>
+    <link rel="stylesheet" href="workerpage.css">
+      
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌾 Farm Worker Management</h1>
+            <p>Efficiently manage your farm workforce with modern tools</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab-btn" onclick="showTab('workers')">👥 Workers</button>
+            <button class="tab-btn" onclick="showTab('add-worker')">➕ Add Worker</button>
+            <button class="tab-btn" onclick="showTab('schedules')">📅 Schedules</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Dashboard -->
+            <div id="dashboard" class="tab-pane active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalWorkers">0</div>
+                        <div class="stat-label">Total Workers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="activeWorkers">0</div>
+                        <div class="stat-label">Active Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalDepartments">0</div>
+                        <div class="stat-label">Departments</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="avgSalary">$0</div>
+                        <div class="stat-label">Avg. Salary</div>
+                    </div>
+                </div>
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">Recent Workers</h3>
+                <div id="recentWorkers" class="workers-grid"></div>
+            </div>
+
+            <!-- Workers -->
+            <div id="workers" class="tab-pane">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search workers by name, role, or department..." id="searchInput">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div id="workersGrid" class="workers-grid"></div>
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <div style="font-size: 4rem;">👥</div>
+                    <h3>No workers found</h3>
+                    <p>Add your first worker to get started!</p>
+                </div>
+            </div>
+
+            <!-- Add Worker -->
+            <div id="add-worker" class="tab-pane">
+                <div class="add-worker-form">
+                    <h2 style="color: #2c3e50; margin-bottom: 25px;">➕ Add New Worker</h2>
+                    <form id="addWorkerForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="workerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Role/Position</label>
+                                <select class="form-control" id="workerRole" required>
+                                    <option value="">Select Role</option>
+                                    <option value="Farm Manager">Farm Manager</option>
+                                    <option value="Field Worker">Field Worker</option>
+                                    <option value="Equipment Operator">Equipment Operator</option>
+                                    <option value="Livestock Caretaker">Livestock Caretaker</option>
+                                    <option value="Harvest Specialist">Harvest Specialist</option>
+                                    <option value="Irrigation Technician">Irrigation Technician</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Department</label>
+                                <select class="form-control" id="workerDepartment" required>
+                                    <option value="">Select Department</option>
+                                    <option value="Crop Production">Crop Production</option>
+                                    <option value="Livestock">Livestock</option>
+                                    <option value="Equipment">Equipment</option>
+                                    <option value="Administration">Administration</option>
+                                    <option value="Processing">Processing</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="workerPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="workerEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Salary ($)</label>
+                                <input type="number" class="form-control" id="workerSalary" min="0" step="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Hire Date</label>
+                                <input type="date" class="form-control" id="workerHireDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Status</label>
+                                <select class="form-control" id="workerStatus" required>
+                                    <option value="Active">Active</option>
+                                    <option value="On Leave">On Leave</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">✅ Add Worker</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Schedules -->
+            <div id="schedules" class="tab-pane">
+                <div class="add-worker-form">
+                    <h2 style="color: #2c3e50; margin-bottom: 25px;">📅 Worker Schedules</h2>
+                    <p style="color: #6c757d; text-align: center; padding: 40px;">Schedule management feature coming soon! This will allow you to assign tasks, set work hours, and track worker availability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>✏️ Edit Worker</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="editWorkerForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="editWorkerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Role/Position</label>
+                        <select class="form-control" id="editWorkerRole" required>
+                            <option value="Farm Manager">Farm Manager</option>
+                            <option value="Field Worker">Field Worker</option>
+                            <option value="Equipment Operator">Equipment Operator</option>
+                            <option value="Livestock Caretaker">Livestock Caretaker</option>
+                            <option value="Harvest Specialist">Harvest Specialist</option>
+                            <option value="Irrigation Technician">Irrigation Technician</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Department</label>
+                        <select class="form-control" id="editWorkerDepartment" required>
+                            <option value="Crop Production">Crop Production</option>
+                            <option value="Livestock">Livestock</option>
+                            <option value="Equipment">Equipment</option>
+                            <option value="Administration">Administration</option>
+                            <option value="Processing">Processing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="editWorkerPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="editWorkerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Salary ($)</label>
+                        <input type="number" class="form-control" id="editWorkerSalary" min="0" step="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-control" id="editWorkerStatus" required>
+                            <option value="Active">Active</option>
+                            <option value="On Leave">On Leave</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <script src="workerpage.js"></script>
+    </body>
+</html>
+      

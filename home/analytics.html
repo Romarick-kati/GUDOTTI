@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Analytics Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="analytics.css">
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌾 GreenFields Analytics Dashboard</h1>
+            <p>Real-time insights into your agricultural operations</p>
+        </div>
+
+        <div class="dashboard">
+            <div class="metrics-grid">
+                <div class="metric-card" onclick="animateCard(this)">
+                    <div class="metric-icon">🌱</div>
+                    <div class="metric-value" id="totalCrops">24</div>
+                    <div class="metric-label">Active Crops</div>
+                    <div class="metric-change positive">+12% this month</div>
+                </div>
+
+                <div class="metric-card" onclick="animateCard(this)">
+                    <div class="metric-icon">🚜</div>
+                    <div class="metric-value" id="machinery">8</div>
+                    <div class="metric-label">Machinery Units</div>
+                    <div class="metric-change positive">+2 new units</div>
+                </div>
+
+                <div class="metric-card" onclick="animateCard(this)">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-value" id="revenue">$45.2K</div>
+                    <div class="metric-label">Monthly Revenue</div>
+                    <div class="metric-change positive">+18% vs last month</div>
+                </div>
+
+                <div class="metric-card" onclick="animateCard(this)">
+                    <div class="metric-icon">📊</div>
+                    <div class="metric-value" id="efficiency">94%</div>
+                    <div class="metric-label">Farm Efficiency</div>
+                    <div class="metric-change positive">+5% improvement</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn active" onclick="switchTimeframe(this, 'week')">This Week</button>
+                <button class="control-btn" onclick="switchTimeframe(this, 'month')">This Month</button>
+                <button class="control-btn" onclick="switchTimeframe(this, 'year')">This Year</button>
+                <button class="control-btn" onclick="refreshData()">🔄 Refresh</button>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3 class="chart-title">Crop Yield Trends</h3>
+                    <canvas id="yieldChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="chart-title">Revenue Distribution</h3>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+
+                <div class="chart-container full-width">
+                    <h3 class="chart-title">Monthly Performance Overview</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">Recent Farm Activities</h3>
+                <div class="activity-feed" id="activityFeed">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="analytics.js"></script>
+       
+    
+</body>
+</html>

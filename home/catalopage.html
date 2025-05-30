@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management Catalog</title>
+    <link rel="stylesheet" href="catalogpage.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌾 Farm Management Catalog</h1>
+            <p>Comprehensive inventory and resource management system</p>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search products, categories, or descriptions...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="equipment">Equipment</button>
+                <button class="filter-btn" data-filter="supplies">Supplies</button>
+                <button class="filter-btn" data-filter="livestock">Livestock</button>
+                <button class="filter-btn" data-filter="crops">Crops</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-number" id="totalItems">0</span>
+                <span>Total Items</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="activeItems">0</span>
+                <span>Active</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="lowStockItems">0</span>
+                <span>Low Stock</span>
+            </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid">
+           
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">📦</div>
+            <p>No items found matching your search criteria</p>
+        </div>
+    </div>
+
+    <button class="floating-add-btn" id="addProductBtn">+</button>
+
+    
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Product</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Category</label>
+                    <select id="productCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="supplies">Supplies</option>
+                        <option value="livestock">Livestock</option>
+                        <option value="crops">Crops</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productQuantity">Quantity</label>
+                    <input type="number" id="productQuantity" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Price ($)</label>
+                    <input type="number" id="productPrice" step="0.01" min="0" required>
+                </div>
+                <div class="product-actions">
+                    <button type="button" class="action-btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="action-btn btn-primary">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="catalogpage.js"></script>
+        
+    </body>
+    </html>

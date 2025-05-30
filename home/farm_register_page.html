@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management System - Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(139, 195, 74, 0.9)), 
+                        url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80') center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { 
+                background-position: 0% 50%; 
+                filter: hue-rotate(0deg);
+            }
+            50% { 
+                background-position: 100% 50%; 
+                filter: hue-rotate(10deg);
+            }
+        }
+
+        .register-container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            width: 450px;
+            max-width: 90vw;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .register-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+            animation: logoFloat 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.6);
+        }
+
+        h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+            transform: translateY(-2px);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        select option {
+            background: #2E7D32;
+            color: white;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .register-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .register-btn:hover::before {
+            left: 100%;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(135deg, #45a049, #7CB342);
+        }
+
+        .register-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: rgba(7, 3, 3, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .login-link a:hover {
+            color: #4CAF50;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 10px;
+        }
+
+        .terms-checkbox input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .terms-checkbox label {
+            margin: 0;
+            font-size: 13px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.3; }
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+            transform: translateX(400px);
+            transition: transform 0.5s ease;
+            z-index: 1000;
+        }
+
+        .success-message.show {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .register-container {
+                padding: 30px 25px;
+                width: 95vw;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 10%; left: 10%;">🌱</div>
+        <div class="floating-element" style="top: 20%; right: 15%;">🚜</div>
+        <div class="floating-element" style="bottom: 20%; left: 20%;">🌾</div>
+        <div class="floating-element" style="bottom: 10%; right: 25%;">🐄</div>
+        <div class="floating-element" style="top: 50%; left: 5%;">🌽</div>
+        <div class="floating-element" style="top: 30%; right: 5%;">🍅</div>
+    </div>
+
+    <div class="register-container">
+        <div class="logo-section">
+            <div class="logo">🌾</div>
+            <h1>Join AgriTech</h1>
+            <p class="subtitle">Create your farm management account</p>
+        </div>
+
+        <form id="registerForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="farmName">Farm Name</label>
+                    <input type="text" id="farmName" name="farmName" placeholder="Your farm name" required>
+                </div>
+                <div class="form-group">
+                    <label for="farmSize">Farm Size (acres)</label>
+                    <input type="number" id="farmSize" name="farmSize" placeholder="Farm size" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="farmType">Farm Type</label>
+                <select id="farmType" name="farmType" required>
+                    <option value="">Select farm type</option>
+                    <option value="crop">Crop Production</option>
+                    <option value="livestock">Livestock</option>
+                    <option value="dairy">Dairy Farm</option>
+                    <option value="poultry">Poultry</option>
+                    <option value="mixed">Mixed Farming</option>
+                    <option value="organic">Organic Farm</option>
+                    <option value="greenhouse">Greenhouse</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                </div>
+            </div>
+
+            <div class="terms-checkbox">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+            </div>
+
+            <button type="submit" class="register-btn">Create Account</button>
+        </form>
+
+        <div class="login-link">
+            <p style="color: rgba(255, 255, 255, 0.7);">Already have an account? 
+                <a href="#" onclick="showLoginMessage()">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="successMessage" class="success-message">
+        <strong>Success!</strong> Account created successfully. Welcome to AgriTech!
+    </div>
+
+    <script>
+        // Add floating animation delays
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.5}s`;
+            });
+
+            // Add input focus animations
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'translateY(-2px)';
+                    this.parentElement.style.transition = 'transform 0.3s ease';
+                });
+
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+
+                // Add typing effect
+                input.addEventListener('input', function() {
+                    if (this.value.length > 0) {
+                        this.style.borderColor = '#4CAF50';
+                        this.style.boxShadow = '0 0 15px rgba(76, 175, 80, 0.2)';
+                    } else {
+                        this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                        this.style.boxShadow = 'none';
+                    }
+                });
+            });
+        });
+
+        // Logo click animation
+        document.querySelector('.logo').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'logoFloat 3s ease-in-out infinite';
+            }, 100);
+            
+            // Add a fun rotation
+            this.style.transform = 'rotate(720deg) scale(1.2)';
+            setTimeout(() => {
+                this.style.transform = 'rotate(0deg) scale(1)';
+            }, 600);
+        });
+
+        // Form submission with animations
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+            
+            // Password validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long!');
+                return;
+            }
+
+            // Add loading animation to button
+            const btn = document.querySelector('.register-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Creating Account...';
+            btn.style.background = 'linear-gradient(135deg, #388E3C, #689F38)';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Show success message
+                const successMsg = document.getElementById('successMessage');
+                successMsg.classList.add('show');
+                
+                // Reset form with animation
+                this.style.opacity = '0.5';
+                this.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    this.reset();
+                    this.style.opacity = '1';
+                    this.style.transform = 'scale(1)';
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #4CAF50, #8BC34A)';
+                    
+                    // Hide success message
+                    setTimeout(() => {
+                        successMsg.classList.remove('show');
+                    }, 3000);
+                }, 1000);
+            }, 2000);
+        });
+
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', function(e) {
+            const container = document.querySelector('.register-container');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            
+            container.style.transform = `translateX(${(x - 50) * 0.05}px) translateY(${(y - 50) * 0.05}px)`;
+            
+            // Move floating elements
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach((el, index) => {
+                const speed = (index + 1) * 0.02;
+                el.style.transform = `translateX(${(x - 50) * speed}px) translateY(${(y - 50) * speed}px)`;
+            });
+        });
+
+        // Show login message
+        function showLoginMessage() {
+            alert('This would redirect to the login page. Integration with login system can be implemented.');
+        }
+
+        // Add random sparkle effects
+        setInterval(() => {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'absolute';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.color = 'rgba(255, 255, 255, 0.6)';
+            sparkle.style.fontSize = '12px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.animation = 'sparkle 2s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }, 3000);
+
+        // Add sparkle animation keyframes dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkle {
+                0% { opacity: 0; transform: scale(0) rotate(0deg); }
+                50% { opacity: 1; transform: scale(1) rotate(180deg); }
+                100% { opacity: 0; transform: scale(0) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

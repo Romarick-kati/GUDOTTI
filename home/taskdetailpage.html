@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details - Farm Management System</title>
+    <link rel="stylesheet" href="taskdetailpage.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <button class="back-btn" onclick="goBack()">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Back to Tasks
+                </button>
+                <h1 class="task-title">Corn Field Irrigation</h1>
+                <p class="task-subtitle">Sector A - Morning Watering Schedule</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="main-content">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Task Overview
+                    </h2>
+                    <p><strong>Description:</strong> Complete irrigation of the corn field in Sector A using the automated sprinkler system. Monitor water pressure and ensure even coverage across all planted rows.</p>
+                    <p><strong>Priority:</strong> <span class="status-badge status-in-progress">High Priority</span></p>
+                    <p><strong>Expected Duration:</strong> 3-4 Hours</p>
+                    <p><strong>Equipment Required:</strong> Sprinkler System, Water Pressure Monitor, Field Boots</p>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M13,2.03V2.05L13,4.05C17.39,4.59 20.5,8.58 19.96,12.97C19.5,16.61 16.64,19.5 13,19.93V21.93C18.5,21.38 22.5,16.5 21.95,11C21.5,6.25 17.73,2.5 13,2.03M11,2.06C9.05,2.25 7.19,3 5.67,4.26L7.1,5.74C8.22,4.84 9.57,4.26 11,4.06V2.06M4.26,5.67C3,7.19 2.25,9.04 2.05,11H4.05C4.24,9.58 4.8,8.23 5.69,7.1L4.26,5.67M2.06,13C2.26,14.96 3.03,16.81 4.27,18.33L5.69,16.9C4.81,15.77 4.24,14.42 4.06,13H2.06M7.1,18.37C8.23,19.25 9.58,19.82 11,20V22C9.04,21.79 7.18,21.03 5.67,19.74L7.1,18.37M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10Z"/>
+                        </svg>
+                        Progress Tracking
+                    </h2>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar" style="width: 65%;"></div>
+                    </div>
+                    <p><strong>Current Progress:</strong> 65% Complete</p>
+                    <p><strong>Time Elapsed:</strong> 2 hours 15 minutes</p>
+                    <p><strong>Estimated Completion:</strong> 1 hour 30 minutes remaining</p>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                        </svg>
+                        Assigned Team
+                    </h2>
+                    <div class="team-member">
+                        <div class="avatar">KG</div>
+                        <div>
+                            <div><strong>KATI GUIDOTTI</strong></div>
+                            <div style="color: #666; font-size: 0.9rem;">Lead Irrigation Specialist</div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="avatar">EJ</div>
+                        <div>
+                            <div><strong>ENOW JOHN</strong></div>
+                            <div style="color: #666; font-size: 0.9rem;">Field Assistant</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/>
+                        </svg>
+                        Activity Timeline
+                    </h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>8:00 AM</strong> - Task initiated, equipment check completed
+                        </div>
+                        <div class="timeline-item">
+                            <strong>8:30 AM</strong> - Irrigation system activated for rows 1-10
+                        </div>
+                        <div class="timeline-item">
+                            <strong>9:45 AM</strong> - First sector completed, moving to sector B
+                        </div>
+                        <div class="timeline-item">
+                            <strong>10:30 AM</strong> - Current: Irrigating rows 20-30
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+                        </svg>
+                        Task Status
+                    </h2>
+                    <div class="status-badge status-in-progress">In Progress</div>
+                    <p style="margin-top: 15px;"><strong>Started:</strong> Today, 8:00 AM</p>
+                    <p><strong>Due Date:</strong> Today, 12:00 PM</p>
+                    <p><strong>Created By:</strong> Farm Manager</p>
+                </div>
+
+                <div class="weather-widget">
+                    <h3>Weather Conditions</h3>
+                    <div class="weather-temp">22°C</div>
+                    <p>Partly Cloudy</p>
+                    <p>Humidity: 65% | Wind: 5 mph</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Perfect conditions for irrigation</p>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
+                        </svg>
+                        Quick Actions
+                    </h2>
+                    <button class="btn" onclick="updateProgress()">
+                        <svg class="icon" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+                            <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                        </svg>
+                        Update Progress
+                    </button>
+                    <button class="btn btn-secondary" onclick="addNote()">
+                        <svg class="icon" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+                            <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                        </svg>
+                        Add Note
+                    </button>
+                    <button class="btn btn-danger" onclick="reportIssue()">
+                        <svg class="icon" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+                            <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                        </svg>
+                        Report Issue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle">Modal Title</h2>
+            <p id="modalMessage">Modal message content</p>
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="btn" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    
+        
+        <script src="taskdetailpage.js"></script>
+    
+</body>
+</html>

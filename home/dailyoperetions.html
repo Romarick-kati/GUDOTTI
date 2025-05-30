@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Farm Operations Tracker</title>
+    <link rel="stylesheet" href="dailyoperetio.css">
+       
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚜 Daily Farm Operations Tracker</h1>
+            <p>Monitor and manage your daily farm activities efficiently</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <button class="btn btn-primary" onclick="openForm()">
+                    ➕ Add Operation
+                </button>
+                <input type="date" class="input" id="dateFilter" onchange="filterByDate()">
+            </div>
+            <div class="control-group">
+                <select class="select" id="statusFilter" onchange="filterOperations()">
+                    <option value="all">All Status</option>
+                    <option value="planned">Planned</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <select class="select" id="categoryFilter" onchange="filterOperations()">
+                    <option value="all">All Categories</option>
+                    <option value="crops">Crops</option>
+                    <option value="livestock">Livestock</option>
+                    <option value="equipment">Equipment</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="irrigation">Irrigation</option>
+                    <option value="harvesting">Harvesting</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalOperations">0</div>
+                <div class="stat-label">Total Operations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedOperations">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="inProgressOperations">0</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="plannedOperations">0</div>
+                <div class="stat-label">Planned</div>
+            </div>
+        </div>
+
+        <div class="operations-grid" id="operationsGrid">
+            <div class="empty-state">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <h3>No operations found</h3>
+                <p>Start by adding your first farm operation</p>
+            </div>
+        </div>
+    </div>
+
+  
+    <div class="form-overlay" id="formOverlay" onclick="closeForm()">
+        <div class="form-modal" onclick="event.stopPropagation()">
+            <div class="form-header">
+                <h2 id="formTitle">Add New Operation</h2>
+                <button class="close-btn" onclick="closeForm()">×</button>
+            </div>
+            <form id="operationForm" onsubmit="saveOperation(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category" required>
+                            <option value="crops">Crops</option>
+                            <option value="livestock">Livestock</option>
+                            <option value="equipment">Equipment</option>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="irrigation">Irrigation</option>
+                            <option value="harvesting">Harvesting</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="operation">Operation</label>
+                        <input type="text" id="operation" name="operation" placeholder="e.g., Planting corn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location/Field</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., North Field A">
+                    </div>
+                    <div class="form-group">
+                        <label for="operator">Operator</label>
+                        <input type="text" id="operator" name="operator" placeholder="Person responsible">
+                    </div>
+                    <div class="form-group">
+                        <label for="startTime">Start Time</label>
+                        <input type="time" id="startTime" name="startTime">
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">End Time</label>
+                        <input type="time" id="endTime" name="endTime">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" name="status">
+                            <option value="planned">Planned</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority" name="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipment">Equipment Used</label>
+                        <input type="text" id="equipment" name="equipment" placeholder="e.g., Tractor, Harvester">
+                    </div>
+                    <div class="form-group">
+                        <label for="materials">Materials/Inputs</label>
+                        <input type="text" id="materials" name="materials" placeholder="e.g., Seeds, Fertilizer">
+                    </div>
+                    <div class="form-group">
+                        <label for="cost">Estimated Cost ($)</label>
+                        <input type="number" id="cost" name="cost" step="0.01" min="0" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Detailed description of the operation"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="weather">Weather Conditions</label>
+                    <input type="text" id="weather" name="weather" placeholder="e.g., Sunny, 25°C">
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" placeholder="Additional notes or observations"></textarea>
+                </div>
+                <div class="card-actions">
+                    <button type="submit" class="btn btn-primary">💾 Save Operation</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="dailyoperetions.js"></script>
+        
+    </body>
+    </html>
